@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seat_finder/HomePage.dart';
 import 'searchbar.dart';
 
 class cabinContainer extends StatelessWidget {
