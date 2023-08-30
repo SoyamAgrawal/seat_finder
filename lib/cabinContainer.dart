@@ -1,110 +1,96 @@
 import 'package:flutter/material.dart';
 import 'package:seat_finder/HomePage.dart';
-import 'searchbar.dart';
 
-class cabinContainer extends StatelessWidget {
+class Cabin extends StatelessWidget {
   int index;
-  cabinContainer({super.key, required this.index});
+  Cabin({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 1,right: 1,top: 4.5,bottom: 4.5),
-      child: Container(
-        height: 200,
-        width: MediaQuery.of(context).size.width,
-        // color: Colors.grey,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 15.0, right: 15.0),
-          child: Column(
+      padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+      child: Column(
+        children: [
+          Row(
             children: [
-              Row(
+              Stack(
                 children: [
-                  Stack(
+                  Row(
                     children: [
-                      
-                      Row(
-                        children: [
-                          Seat(1 + index * 8, 'LOWER'),
-                          Seat(2 + index * 8, 'MIDDLE'),
-                          Seat(3 + index * 8, 'UPPER'),
-                        ],
-                      ),
-                      Container(
-                        height: 64,
-                        width: 184,
-                        // color: Colors.black,
-                        child: CustomPaint(
-                          painter: UpLinePainter(),
-                        ),
-                      ),
+                      Seat(1 + index * 8, 'LOWER'),
+                      Seat(2 + index * 8, 'MIDDLE'),
+                      Seat(3 + index * 8, 'UPPER'),
                     ],
                   ),
-                  const Spacer(),
-                  Stack(
-                    children: [
-                      Seat(7 + index * 8, 'SIDE LOWER'),
-                      Container(
-                        height: 64,
-                        width: 62,
-                        // color: Colors.black,
-                        child: CustomPaint(
-                          painter: UpLinePainter(),
-                        ),
-                      ),
-                    ],
-                  )
-                  
-                ],
-              ),
-              Spacer(),
-              Row(
-                children: [
-                  Stack(
-                    children: [
-                      
-                      Row(
-                        children: [
-                          Seat(4 + index * 8, 'LOWER'),
-                          Seat(5 + index * 8, 'MIDDLE'),
-                          Seat(6 + index * 8, 'UPPER'),
-                        ],
-                      ),
-                      Container(
-                        height: 64,
-                        width: 184,
-                        // color: Colors.black,
-                        child: CustomPaint(
-                          painter: DownLinePainter(),
-                        ),
-                      ),
-                    ],
+                  Container(
+                    height: 64,
+                    width: 184,
+                    // color: Colors.black,
+                    child: CustomPaint(
+                      painter: UpLinePainter(),
+                    ),
                   ),
-                  const Spacer(),
-                  Stack(
-                    children: [
-                      Seat(8 + index * 8, 'SIDE LOWER'),
-                      Container(
-                        height: 64,
-                        width: 62,
-                        // color: Colors.black,
-                        child: CustomPaint(
-                          painter: DownLinePainter(),
-                        ),
-                      ),
-                    ],
-                  )
-                  
                 ],
               ),
+              const Spacer(),
+              Stack(
+                children: [
+                  Seat(7 + index * 8, 'SIDE LOWER'),
+                  Container(
+                    height: 64,
+                    width: 62,
+                    // color: Colors.black,
+                    child: CustomPaint(
+                      painter: UpLinePainter(),
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
-        ),
+          Spacer(),
+          Row(
+            children: [
+              Stack(
+                children: [
+                  Row(
+                    children: [
+                      Seat(4 + index * 8, 'LOWER'),
+                      Seat(5 + index * 8, 'MIDDLE'),
+                      Seat(6 + index * 8, 'UPPER'),
+                    ],
+                  ),
+                  Container(
+                    height: 64,
+                    width: 184,
+                    // color: Colors.black,
+                    child: CustomPaint(
+                      painter: DownLinePainter(),
+                    ),
+                  ),
+                ],
+              ),
+              const Spacer(),
+              Stack(
+                children: [
+                  Seat(8 + index * 8, 'SIDE LOWER'),
+                  Container(
+                    height: 64,
+                    width: 62,
+                    // color: Colors.black,
+                    child: CustomPaint(
+                      painter: DownLinePainter(),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ],
       ),
     );
   }
 }
-
 // ignore: non_constant_identifier_names
 Widget Seat(int i, String S) {
   return Padding(
